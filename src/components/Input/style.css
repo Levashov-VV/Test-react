@@ -1,0 +1,32 @@
+.container{
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  width: 432px;
+  column-gap: 11px;
+}
+
+.input{
+  padding: 0 11px;
+  width: 381px;
+  height: 40px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid #3E1671;
+  color: #777777;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+}
+.container__btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #9E78CF;
+  border-radius: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+#root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:1440px;
+}
+.TodoList{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 60px;
+  width: 983px;
+  padding: 74px 0 68px;
+  background-color: #0D0714;
+  border-radius: 80px;
+}
+.TodoTasks{
+  display: flex;
+  flex-direction: column;
+  row-gap: 17px;
+  width: 432px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+}
+.title{
+  color: #FFFFFF;
+  height: 19px;
+}
+.tasks__block{
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.task{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  background-color: #15101C;
+  color: #9E78CF;
+  border-radius: 10px;
+  padding: 0 20.55px;
+}
+.task__text{
+  width: 221px;
+  height: 19px;
+  padding: 5.5px 0;
+}
+.task__btn{
+  display: flex;
+  gap: 8px;  /*если не приписывать интервал, тогда можно прописать ширину и align-items */
+  background-color: #15101C;
+}
+.task__img{
+  width: 22px;
+  height: 22px;
+}
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #15101C;
+  cursor: pointer;
+}
+.done{
+  width: 432px;
+  gap: 16px;
+}
+.done__text{
+  text-decoration: line-through;
+  color: #78CFB0;
+}
