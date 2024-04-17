@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 #root{
   display: flex;
   justify-content: center;
   align-items: center;
   width:1440px;
+  height: 1024px;
 }
-.TodoList{
+
+.todo-list{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,25 +18,29 @@
   background-color: #0D0714;
   border-radius: 80px;
 }
-.TodoTasks{
+
+.todo-tasks{
   display: flex;
   flex-direction: column;
   row-gap: 17px;
   width: 432px;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 19.36px;
 }
+
 .title{
-  color: #FFFFFF;
+  color: #FFF;
   height: 19px;
 }
-.tasks__block{
+
+.tasks-block{
   display: flex;
   gap: 16px;
   flex-direction: column;
 }
+
 .task{
   display: flex;
   align-items: center;
@@ -44,20 +51,24 @@
   border-radius: 10px;
   padding: 0 20.55px;
 }
-.task__text{
+
+.task-text{
   width: 221px;
   height: 19px;
   padding: 5.5px 0;
 }
-.task__btn{
+
+.task-btn{
   display: flex;
-  gap: 8px;  /*если не приписывать интервал, тогда можно прописать ширину и align-items */
+  gap: 8px;
   background-color: #15101C;
 }
-.task__img{
+
+.task-img{
   width: 22px;
   height: 22px;
 }
+
 .btn{
   display: flex;
   align-items: center;
@@ -67,11 +78,13 @@
   background-color: #15101C;
   cursor: pointer;
 }
+
 .done{
   width: 432px;
   gap: 16px;
 }
-.done__text{
+
+.done-text{
   text-decoration: line-through;
   color: #78CFB0;
 }

@@ -15,7 +15,7 @@ const Input = (props) =>{
       <div className="container">
         <input className="input" type="text" placeholder="Add a new task"
         value={value} onChange={e => setValue(e.target.value)}/>
-        <button className="container__btn" type="button" onClick={handleClick}>
+        <button className="container-btn" type="button" onClick={handleClick}>
           <img src={Plus} alt="Plus" />
       </button>
     </div>

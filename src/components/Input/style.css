@@ -13,14 +13,15 @@
   background: transparent;
   border-radius: 10px;
   border: 1px solid #3E1671;
-  color: #777777;
+  color: #777;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: Inter, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 19.36px;
 }
-.container__btn{
+
+.container-btn{
   display: flex;
   justify-content: center;
   align-items: center;

@@ -27,30 +27,30 @@ function App() {
     removeTask(id)
   }
   return (
-      <div className="TodoList">
+      <div className="todo-list">
         <Input 
           insertTask={insertTask}
         />
-        <div className="TodoTasks">
+        <div className="todo-tasks">
           <div className="title">Tasks to do - {task.length} </div>
-          <div className="tasks__block">
+          <div className="tasks-block">
             {
               task.map(task =>{
                 return(
                   <div className='task' key={task.id}>
-                    {task.text}
-                    <div className="task__btn">
+                    <div class="task-text task">{task.text}</div>
+                    <div className="task-btn">
                       <button className="btn" type="button" onClick={e => {
                         e.stopPropagation()
                         addTask(task.id, task.text)
                       }}>
-                      <img className="task__img" src={Check} alt="Check"/>
+                      <img className="task-img" src={Check} alt="Check"/>
                       </button>
                       <button className="btn" type="button" onClick={e => {
                         e.stopPropagation()
                         removeTask(task.id)
                       }}>
-                      <img className="task__img" src={Busket} alt="busket"/>
+                      <img className="task-img" src={Busket} alt="busket"/>
                       </button>
                     </div>
                   </div>
@@ -59,12 +59,12 @@ function App() {
             }
             </div>
           </div>
-        <div className="TodoTasks done">
+        <div className="todo-tasks done">
           <div className="title">Done - {doneTask.length}</div>
           {
               doneTask.map(doneTask =>{
                 return(
-                  <div className='task done__text' key={doneTask.id}>
+                  <div className='task done-text' key={doneTask.id}>
                     {doneTask.text}
                     </div>
               )})
