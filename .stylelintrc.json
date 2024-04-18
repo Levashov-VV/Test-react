@@ -1,3 +1,3 @@
-{ "extends":
-["stylelint-config-standard"]
+{
+  "extends": ["@rambler-tech/stylelint-config"]
 }

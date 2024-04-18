@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Input from "./components/Input/Input"
 import './App.css'
 import Check from "./assets/Check.svg"
@@ -27,7 +27,7 @@ function App() {
     removeTask(id)
   }
   return (
-      <div className="todo-list">
+    <div className="todo-list">
         <Input 
           insertTask={insertTask}
         />
@@ -38,7 +38,7 @@ function App() {
               task.map(task =>{
                 return(
                   <div className='task' key={task.id}>
-                    <div class="task-text task">{task.text}</div>
+                    <div className="task-text task">{task.text}</div>
                     <div className="task-btn">
                       <button className="btn" type="button" onClick={e => {
                         e.stopPropagation()

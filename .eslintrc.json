@@ -1,6 +1,0 @@
-{
-  "extends": [
-    "@rambler-tech/eslint-config",
-    "@rambler-tech/eslint-config/react"
-  ]
-}
