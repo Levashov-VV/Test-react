@@ -12,7 +12,7 @@ function App() {
     if (value) {
       setTasks([...tasks, {id: Date.now(), text: value}]);
     } else {
-      alert("Введите в поле ввода задачу");
+      alert('Введите в поле ввода задачу');
     }
   };
 
@@ -49,40 +49,40 @@ function App() {
           Tasks to do - {tasks.length}
         </div>
 
-      <div className="tasks-block">
-        {tasks.map(task => (
-          <div className='task' key={task.id}>
-            <div className="task-text task">
-              {task.text}
-            </div>
+        <div className="tasks-block">
+          {tasks.map(task => (
+            <div className="task" key={task.id}>
+              <div className="task-text task">
+                {task.text}
+              </div>
 
-            <div className="task-btn">
-              <button
-                className="btn"
-                type="button"
-                onClick={onClickDone}
-              >
-                <img
+              <div className="task-btn">
+                <button
+                  className="btn"
+                  type="button"
+                  onClick={onClickDone}
+                >
+                  <img
+                    className="task-img"
+                    src={Check}
+                    alt="Check"
+                  />
+                </button>
+
+                <button
+                  className="btn"
+                  type="button"
+                  onClick={onClickDelete}
+                >
+                  <img
                   className="task-img"
-                  src={Check}
-                  alt="Check"
-                />
-              </button>
-
-              <button
-                className="btn"
-                type="button"
-                onClick={onClickDelete}
-              >
-                <img
-                className="task-img"
-                src={Busket}
-                alt="busket"
-                />
-              </button>
+                  src={Busket}
+                  alt="busket"
+                  />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       </div>
       <div className="todo-tasks done">
@@ -99,6 +99,5 @@ function App() {
     </div>
   );
 }
-// Не даёт поставить точку с запятой. Выдаёт ошибку
 
 export default App;
