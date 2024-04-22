@@ -1,56 +1,58 @@
 import { useState } from 'react';
-import Input from './components/Input/Input';
+import Input from "./components/Input/Input";
 import './App.css';
-import Check from './assets/Check.svg';
-import Busket from './assets/TrashSimple.svg';
+import Check from "./assets/Check.svg";
+import Busket from "./assets/TrashSimple.svg";
+
 
 function App() {
+  
   const [tasks, setTasks] = useState([]);
   const [doneTasks] = useState([]);
 
   const addTask = (value) => {
     if (value) {
-      setTask([...task, {id: Date.now(), text: value}]);
+      setTasks([...tasks, {id: Date.now(), text: value}])
     } else {
-      alert('Введите в поле ввода задачу');
+      alert("Введите в поле ввода задачу")
     }
   };
 
   const removeTask = (id) => {
-    const nextTasks = task.filter(task => task.id !== id);
-    setTask(nextTasks);
+    const nextTasks = tasks.filter(task => task.id !== id);
+    setTasks(nextTasks);
   };
 
   const doneTask = (id, text) => {
-    doneTask.push({
+    doneTasks.push({
       id: id,
       text: text
     });
-
+    
     removeTask(id);
   };
-
+  
   const onClickDone = (e) => {
     e.stopPropagation();
-    doneTask(task.id, task.text);
+    doneTask(tasks.id, tasks.text);
   };
-
+  
   const onClickDelete = (e) => {
     e.stopPropagation();
-    removeTask(task.id);
+    removeTask(tasks.id);
   };
 
   return (
     <div className="todo-list">
-      <Input insertTask={addTask} />
+      <Input addTask={addTask} />
 
       <div className="todo-tasks">
         <div className="title">
-          Tasks to do - {task.length}
+          Tasks to do - {tasks.length}
         </div>
 
         <div className="tasks-block">
-          {task.map(task => (
+          {tasks.map(task => (
             <div className='task' key={task.id}>
               <div className="task-text task">
                 {task.text}
@@ -82,23 +84,23 @@ function App() {
                 </button>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="todo-tasks done">
-        <div className="title">
-          Done - {doneTask.length}
-        </div>
-
-        {doneTask.map(doneTask => (
-          <div className='task done-text' key={doneTask.id}>
-            {doneTask.text}
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+
+        <div className="todo-tasks done">
+            <div className="title">
+              Done - {doneTasks.length}
+            </div>
+
+            {doneTasks.map(doneTask => (
+              <div className='task done-text' key={doneTask.id}>
+                {doneTask.text}
+              </div>
+            ))}
+          </div>
+          </div>
   );
-};
+}
 
 export default App
