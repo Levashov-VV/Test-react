@@ -75,9 +75,9 @@ function App() {
                   onClick={onClickDelete}
                 >
                   <img
-                  className="task-img"
-                  src={Busket}
-                  alt="busket"
+                    className="task-img"
+                    src={Busket}
+                    alt="busket"
                   />
                 </button>
               </div>
