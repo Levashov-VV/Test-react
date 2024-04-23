@@ -91,7 +91,7 @@ function App() {
         </div>
 
         {doneTasks.map(doneTask => (
-          <div className='task done-text' key={doneTask.id}>
+          <div className="task done-text" key={doneTask.id}>
             {doneTask.text}
           </div>
         ))}
