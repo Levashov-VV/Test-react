@@ -15,26 +15,26 @@ const Input = (prop) => {
     setValue(e.target.value);
   };
 
-    return(
-      <div className='container'>
-        <input 
-        className="input" 
-        type="text" 
-        placeholder="Add a new task"
-        value={value} 
-        onChange={handleChange}
-        />
-        <button 
-        className="container-btn"
-        type="button" 
-        onClick={pressButton}>
-        <img 
-        src={Plus}
-        alt="Plus" 
-        />
-        </button>
-      </div>
-    );
+  return(
+    <div className="container">
+      <input 
+      className="input" 
+      type="text" 
+      placeholder="Add a new task"
+      value={value} 
+      onChange={handleChange}
+      />
+      <button 
+      className="container-btn"
+      type="button" 
+      onClick={pressButton}>
+      <img 
+      src={Plus}
+      alt="Plus" 
+      />
+      </button>
+    </div>
+  );
 };
 
 export default Input;
