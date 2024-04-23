@@ -18,19 +18,19 @@ const Input = (prop) => {
   return(
     <div className="container">
       <input 
-      className="input" 
-      type="text" 
-      placeholder="Add a new task"
-      value={value} 
-      onChange={handleChange}
+        className="input" 
+        type="text" 
+        placeholder="Add a new task"
+        value={value} 
+        onChange={handleChange}
       />
       <button 
-      className="container-btn"
-      type="button" 
-      onClick={pressButton}>
+        className="container-btn"
+        type="button" 
+        onClick={pressButton}>
       <img 
-      src={Plus}
-      alt="Plus" 
+        src={Plus}
+        alt="Plus" 
       />
       </button>
     </div>
