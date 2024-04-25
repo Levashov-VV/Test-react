@@ -34,6 +34,7 @@ function App() {
     e.stopPropagation();
     doneTask(tasks.id, tasks.text);
   };
+
   const onClickDelete = (e) => {
     e.stopPropagation();
     removeTask(tasks.id);
