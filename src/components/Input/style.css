@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   justify-content: start;
   flex-direction: row;
@@ -6,7 +6,7 @@
   column-gap: 11px;
 }
 
-.input{
+.input {
   padding: 0 11px;
   width: 381px;
   height: 40px;
@@ -21,7 +21,7 @@
   line-height: 19.36px;
 }
 
-.container-btn{
+.container-btn {
   display: flex;
   justify-content: center;
   align-items: center;
