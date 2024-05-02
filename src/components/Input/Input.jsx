@@ -1,36 +1,39 @@
-import Plus from "../../assets/Plus.svg"
-import { useState } from "react"
-import "./style.css"
+import Plus from '../../assets/Plus.svg';
+import { useState } from 'react';
+import './style.css';
 
-const Input = (prop) => {
+const Input = ({
+  addTask,
+}) => {
+  const [value, setValue] = useState('');
 
-  const [value, setValue] = useState("");
-  const handleClick = (e) =>{
-    e.preventDefault();
-    prop.addTask(value);
-    setValue("");
+  const handleClick = () => {
+    addTask(value);
+    setValue('');
   };
+
   return(
     <div className="container">
-        <input 
+      <input
         className="input" 
         type="text" 
         placeholder="Add a new task"
         value={value} 
         onChange={e => setValue(e.target.value)}
-        />
+      />
 
-        <button 
+      <button
         className="container-btn"
         type="button" 
-        onClick={handleClick}>
-
-          <img 
+        onClick={handleClick}
+      >
+        <img
           src={Plus}
           alt="Plus" 
-          />
+        />
       </button>
     </div>
-  )
+  );
 }
+
 export default Input;
