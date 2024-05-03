@@ -6,29 +6,29 @@ import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const [doneTasks, setDoneTasks] = useState([]);
 
   const addTask = (value) => {
     if (value) {
       setTasks([
         ...tasks,
-        { id: Date.now(), text: value },
+        {
+          id: Date.now(),
+          text: value,
+          done: false,
+        },
       ]);
     } else {
       alert('Введите в поле ввода задачу');
     }
   };
 
-  const onClickDone = (task) => {
-    setDoneTasks({
-      ...doneTasks,
-      task,
-    });
-
+  const onClickDone = (index) => {
+    // TODO
     removeTask(id);
   };
   
-  const onClickDelete = (deletingTask) => {
+  const onClickDelete = (index) => {
+    // TODO
     const nextTasks = tasks.filter(task => task.id !== deletingTask.id);
     setTasks(nextTasks);
   };
@@ -39,59 +39,71 @@ function App() {
 
       <div className="todo-tasks">
         <div className="title">
-          Tasks to do - {tasks.length}
+          Tasks to do - {tasks.length} {/*TODO*/}
         </div>
 
         <div className="tasks-block">
-          {tasks.map(task => (
-            <div className="task" key={task.id}>
-              <div className="task-text task">
-                {task.text}
-              </div>
+          {tasks.map((task, index) => {
+            if (task.done) {
+              return;
+            }
 
-              <div className="task-btn">
-                <button
-                  className="btn"
-                  type="button"
-                  onClick={() => onClickDone(task)}
-                >
-                  <img
-                    className="task-img"
-                    src={Check}
-                    alt="Check"
-                  />
-                </button>
+            return (
+              <div className="task" key={task.id}>
+                <div className="task-text task">
+                  {task.text}
+                </div>
 
-                <button
-                  className="btn"
-                  type="button"
-                  onClick={() => onClickDelete(task)}
-                >
-                  <img
-                    className="task-img"
-                    src={Busket}
-                    alt="busket"
-                  />
-                </button>
+                <div className="task-btn">
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={() => onClickDone(index)}
+                  >
+                    <img
+                      className="task-img"
+                      src={Check}
+                      alt="Check"
+                    />
+                  </button>
+
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={() => onClickDelete(index)}
+                  >
+                    <img
+                      className="task-img"
+                      src={Busket}
+                      alt="busket"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
       <div className="todo-tasks done">
         <div className="title">
-          Done - {doneTasks.length}
+          Done - {tasks.length} {/*TODO*/}
         </div>
 
-        {doneTasks.map(doneTask => (
-          <div
-            key={doneTask.id}
-            className="task done-text"
-          >
-            {doneTask.text}
-          </div>
-        ))}
+        {tasks.map(task => {
+          if (!task.done) {
+            return;
+          }
+
+          return (
+            <div
+              key={doneTask.id}
+              className="task done-text"
+            >
+              {doneTask.text}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
