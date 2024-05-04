@@ -6,33 +6,40 @@ import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const [doneTasks, setDoneTasks] = useState([]);
 
   const addTask = (value) => {
     if (value) {
       setTasks([
         ...tasks,
-        { id: Date.now(), text: value },
+        {
+          id: Date.now(),
+          text: value,
+          done: false,
+        },
       ]);
     } else {
       alert('Введите в поле ввода задачу');
     }
   };
 
-  const onClickDone = (task) => {
-    setDoneTasks([
-      ...doneTasks,
-      task,
-    ]);
+  const onClickDone = (index) => {
+    const doneTask = tasks.filter((task, id) => {
+      if (id === index) {
+        return task.done = true
+      } else {
+        return task
+      }});
+    setTasks(doneTask)
+    };
 
-    onClickDelete(task)
-
+  const onClickDelete = (index) => {
+      const nextTasks = tasks.filter((_, id) => id !== index);
+      setTasks(nextTasks);
   };
 
-  const onClickDelete = (deletingTask) => {
-    const nextTasks = tasks.filter(task => task.id !== deletingTask.id);
-    setTasks(nextTasks);
-  };
+  const workTasks = tasks.filter(task => task.done === false);
+
+  const doneTasks = tasks.filter(task => task.done === true);
 
   return (
     <div className="todo-list">
@@ -40,65 +47,69 @@ function App() {
 
       <div className="todo-tasks">
         <div className="title">
-          Tasks to do - {tasks.length}
+          Tasks to do - {workTasks.length}
         </div>
 
         <div className="tasks-block">
-          {tasks.map(task => (
-            <div 
-              className="task" 
-              key={task.id}
-            >
-              <div className="task-text task">
-                {task.text}
-              </div>
+          {tasks.map((task, index) => {
+            if (!task.done) {
+              return (
+                <div className="task" key={task.id}>
+                  <div className="task-text task">
+                    {task.text}
+                  </div>
+  
+                  <div className="task-btn">
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => onClickDone(index)}
+                    >
+                      <img
+                        className="task-img"
+                        src={Check}
+                        alt="Check"
+                      />
+                    </button>
 
-              <div className="task-btn">
-                <button
-                  className="btn"
-                  type="button"
-                  onClick={() => onClickDone(task)}
-                >
-                  <img
-                    className="task-img"
-                    src={Check}
-                    alt="Check"
-                  />
-                </button>
-
-                <button
-                  className="btn"
-                  type="button"
-                  onClick={() => onClickDelete(task)}
-                >
-                  <img
-                    className="task-img"
-                    src={Busket}
-                    alt="busket"
-                  />
-                </button>
-              </div>
-            </div>
-          ))}
+                    <button
+                      className="btn"
+                      type="button"
+                      onClick={() => onClickDelete(index)}
+                    >
+                      <img
+                        className="task-img"
+                        src={Busket}
+                        alt="busket"
+                      />
+                    </button>
+                  </div>
+                </div>
+              );
+            }})}
         </div>
       </div>
+
 
       <div className="todo-tasks done">
         <div className="title">
           Done - {doneTasks.length}
         </div>
 
-        {doneTasks.map(doneTask => (
-          <div
-            className="task done-text"
-            key={doneTask.id}
-          >
-            {doneTask.text}
-          </div>
-        ))}
+        {tasks.map(task => {
+          if (task.done) {
+            return (
+              <div
+                key={task.id}
+                className="task done-text"
+              >
+                {task.text}
+              </div>
+            );
+          }})}
       </div>
     </div>
   );
 }
 
-export default App;
+export default App
