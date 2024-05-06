@@ -4,6 +4,10 @@ import Check from './assets/Check.svg';
 import Busket from './assets/TrashSimple.svg';
 import './App.css';
 
+// Задание
+// 1. Добавление новых тасок по клику Enter
+// 2. Обеспечить сохранение тасок
+
 function App() { 
   const [tasks, setTasks] = useState([]);
 
@@ -22,19 +26,31 @@ function App() {
     }
   };
 
+  // const onClickDone = (index) => {
+  //   const doneTask = tasks.filter((task, id) => {
+  //     if (id === index) {
+  //       return task.done = true
+  //     } else {
+  //       return task
+  //     }
+  //   });
+
+  //   setTasks(doneTask)
+  // };
+
   const onClickDone = (index) => {
-    const doneTask = tasks.filter((task, id) => {
-      if (id === index) {
-        return task.done = true
-      } else {
-        return task
-      }});
-    setTasks(doneTask)
-    };
+    const nestTask = [...tasks];
+    nestTask[index].done = true;
+    setTasks(nestTask);
+  };
+
+  // const onClickDelete = (index) => {
+  //   const nextTasks = tasks.filter((_, id) => id !== index);
+  //   setTasks(nextTasks);
+  // };
 
   const onClickDelete = (index) => {
-      const nextTasks = tasks.filter((_, id) => id !== index);
-      setTasks(nextTasks);
+    setTasks((arr) => arr.splice(index, 1));
   };
 
   const workTasks = tasks.filter(task => task.done === false);
