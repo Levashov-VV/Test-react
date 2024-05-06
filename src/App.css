@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-#root{
+#root {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:1440px;
+  width: 1440px;
   height: 1024px;
 }
 
-.todo-list{
+.todo-list {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,7 +19,7 @@
   border-radius: 80px;
 }
 
-.todo-tasks{
+.todo-tasks {
   display: flex;
   flex-direction: column;
   row-gap: 17px;
@@ -30,18 +30,18 @@
   line-height: 19.36px;
 }
 
-.title{
+.title {
   color: #FFF;
   height: 19px;
 }
 
-.tasks-block{
+.tasks-block {
   display: flex;
   gap: 16px;
   flex-direction: column;
 }
 
-.task{
+.task {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,24 +52,24 @@
   padding: 0 20.55px;
 }
 
-.task-text{
+.task-text {
   width: 221px;
   height: 19px;
   padding: 5.5px 0;
 }
 
-.task-btn{
+.task-btn {
   display: flex;
   gap: 8px;
   background-color: #15101C;
 }
 
-.task-img{
+.task-img {
   width: 22px;
   height: 22px;
 }
 
-.btn{
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,12 +79,12 @@
   cursor: pointer;
 }
 
-.done{
+.done {
   width: 432px;
   gap: 16px;
 }
 
-.done-text{
+.done-text {
   text-decoration: line-through;
   color: #78CFB0;
 }
