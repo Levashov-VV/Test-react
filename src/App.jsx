@@ -4,7 +4,7 @@ import Check from './assets/Check.svg';
 import Busket from './assets/TrashSimple.svg';
 import './App.css';
 
-function App() {
+function App() { 
   const [tasks, setTasks] = useState([]);
 
   const addTask = (value) => {
