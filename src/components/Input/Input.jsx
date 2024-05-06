@@ -12,32 +12,28 @@ const Input = ({
     setValue('');
   };
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
-  return (
+  return(
     <div className="container">
-      <input 
+      <input
         className="input" 
         type="text" 
         placeholder="Add a new task"
         value={value} 
-        onChange={handleChange}
+        onChange={e => setValue(e.target.value)}
       />
 
-      <button 
+      <button
         className="container-btn"
         type="button" 
         onClick={handleClick}
       >
-        <img 
+        <img
           src={Plus}
           alt="Plus" 
         />
       </button>
     </div>
   );
-};
+}
 
 export default Input;

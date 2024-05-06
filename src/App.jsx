@@ -23,23 +23,15 @@ function App() {
   };
 
   const onClickDone = (index) => {
-    const doneTask = tasks.filter((task, id) => {
-      if (id === index) {
-        return task.done = true
-      } else {
-        return task
-      }});
-    setTasks(doneTask)
-    };
-
-  const onClickDelete = (index) => {
-      const nextTasks = tasks.filter((_, id) => id !== index);
-      setTasks(nextTasks);
+    // TODO
+    removeTask(id);
   };
-
-  const workTasks = tasks.filter(task => task.done === false);
-
-  const doneTasks = tasks.filter(task => task.done === true);
+  
+  const onClickDelete = (index) => {
+    // TODO
+    const nextTasks = tasks.filter(task => task.id !== deletingTask.id);
+    setTasks(nextTasks);
+  };
 
   return (
     <div className="todo-list">
@@ -47,66 +39,71 @@ function App() {
 
       <div className="todo-tasks">
         <div className="title">
-          Tasks to do - {workTasks.length}
+          Tasks to do - {tasks.length} {/*TODO*/}
         </div>
 
         <div className="tasks-block">
           {tasks.map((task, index) => {
-            if (!task.done) {
-              return (
-                <div className="task" key={task.id}>
-                  <div className="task-text task">
-                    {task.text}
-                  </div>
-  
-                  <div className="task-btn">
-                    <button
-                      className="btn"
-                      type="button"
-                      onClick={() => onClickDone(index)}
-                    >
-                      <img
-                        className="task-img"
-                        src={Check}
-                        alt="Check"
-                      />
-                    </button>
+            if (task.done) {
+              return;
+            }
 
-                    <button
-                      className="btn"
-                      type="button"
-                      onClick={() => onClickDelete(index)}
-                    >
-                      <img
-                        className="task-img"
-                        src={Busket}
-                        alt="busket"
-                      />
-                    </button>
-                  </div>
+            return (
+              <div className="task" key={task.id}>
+                <div className="task-text task">
+                  {task.text}
                 </div>
-              );
-            }})}
+
+                <div className="task-btn">
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={() => onClickDone(index)}
+                  >
+                    <img
+                      className="task-img"
+                      src={Check}
+                      alt="Check"
+                    />
+                  </button>
+
+                  <button
+                    className="btn"
+                    type="button"
+                    onClick={() => onClickDelete(index)}
+                  >
+                    <img
+                      className="task-img"
+                      src={Busket}
+                      alt="busket"
+                    />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-
       <div className="todo-tasks done">
         <div className="title">
-          Done - {doneTasks.length}
+          Done - {tasks.length} {/*TODO*/}
         </div>
 
         {tasks.map(task => {
-          if (task.done) {
-            return (
-              <div
-                key={task.id}
-                className="task done-text"
-              >
-                {task.text}
-              </div>
-            );
-          }})}
+          if (!task.done) {
+            return;
+          }
+
+          return (
+            <div
+              key={doneTask.id}
+              className="task done-text"
+            >
+              {doneTask.text}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
