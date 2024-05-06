@@ -11,15 +11,24 @@ const Input = ({
     addTask(value);
     setValue('');
   };
+  
+  const handleChange = (e) => setValue(e.target.value);
 
-  return(
+  const toPressEnter = (e) => {
+    if(e.key === 'Enter') {
+      handleClick()
+    }
+  };
+
+  return (
     <div className="container">
       <input
         className="input" 
         type="text" 
         placeholder="Add a new task"
         value={value} 
-        onChange={e => setValue(e.target.value)}
+        onChange={handleChange}
+        onKeyUp={toPressEnter}
       />
 
       <button

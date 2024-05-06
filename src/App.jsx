@@ -5,7 +5,7 @@ import Busket from './assets/TrashSimple.svg';
 import './App.css';
 
 function App() { 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
 
   const addTask = (value) => {
     if (value) {
@@ -23,18 +23,16 @@ function App() {
   };
 
   const onClickDone = (index) => {
-    const doneTask = tasks.filter((task, id) => {
-      if (id === index) {
-        return task.done = true
-      } else {
-        return task
-      }});
-    setTasks(doneTask)
-    };
+    const nestTask = [...tasks];
+    nestTask[index].done = true;
+    setTasks(nestTask);
+    localStorage.setItem('tasks', JSON.stringify(nestTask));
+  };
 
   const onClickDelete = (index) => {
       const nextTasks = tasks.filter((_, id) => id !== index);
       setTasks(nextTasks);
+      localStorage.setItem('tasks', JSON.stringify(nextTasks));
   };
 
   const workTasks = tasks.filter(task => task.done === false);
@@ -96,7 +94,7 @@ function App() {
           Done - {doneTasks.length}
         </div>
 
-        {tasks.map(task => {
+        {tasks.map((task, index) => {
           if (task.done) {
             return (
               <div
@@ -104,6 +102,18 @@ function App() {
                 className="task done-text"
               >
                 {task.text}
+
+                <button
+                      className="btn"
+                      type="button"
+                      onClick={() => onClickDelete(index)}
+                    >
+                      <img
+                        className="task-img"
+                        src={Busket}
+                        alt="busket"
+                      />
+                    </button>
               </div>
             );
           }})}
