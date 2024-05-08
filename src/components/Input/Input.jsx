@@ -5,14 +5,18 @@ import './style.css';
 const Input = ({
   addTask,
 }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(JSON.parse(localStorage.getItem('tasks')) || '');
 
   const handleClick = () => {
+    const val = '';
     addTask(value);
-    setValue('');
+    setValue(val);
+    localStorage.setItem('tasks', JSON.stringify(val))
   };
   
-  const handleChange = (e) => setValue(e.target.value);
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  };
 
   const toPressEnter = (e) => {
     if(e.key === 'Enter') {

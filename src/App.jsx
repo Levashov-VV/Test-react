@@ -6,7 +6,7 @@ import './App.css';
 
 function App() { 
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
-
+  
   const addTask = (value) => {
     if (value) {
       setTasks([
