@@ -5,13 +5,11 @@ import './style.css';
 const Input = ({
   addTask,
 }) => {
-  const [value, setValue] = useState(JSON.parse(localStorage.getItem('tasks')) || '');
+  const [value, setValue] = useState('');
 
   const handleClick = () => {
-    const val = '';
     addTask(value);
-    setValue(val);
-    localStorage.setItem('tasks', JSON.stringify(val))
+    setValue('');
   };
   
   const handleChange = (e) => {
