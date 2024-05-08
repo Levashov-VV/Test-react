@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Input from './components/Input/Input';
 import Check from './assets/Check.svg';
 import Busket from './assets/TrashSimple.svg';
 import './App.css';
 
 function App() { 
-  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem('tasks')) || []);
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const array = localStorage.getItem('tasks') || [];
+    setTasks(JSON.parse(array))
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks]);
   
   const addTask = (value) => {
     if (value) {
@@ -23,16 +32,14 @@ function App() {
   };
 
   const onClickDone = (index) => {
-    const nestTask = [...tasks];
-    nestTask[index].done = true;
-    setTasks(nestTask);
-    localStorage.setItem('tasks', JSON.stringify(nestTask));
+    const nextTasks = [...tasks];
+    nextTasks[index].done = true;
+    setTasks(nextTasks);
   };
 
   const onClickDelete = (index) => {
       const nextTasks = tasks.filter((_, id) => id !== index);
       setTasks(nextTasks);
-      localStorage.setItem('tasks', JSON.stringify(nextTasks));
   };
 
   const workTasks = tasks.filter(task => task.done === false);
